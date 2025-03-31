@@ -7,15 +7,15 @@ class Timer {
         this.startButton.addEventListener("click", this.start);
     }
 
-    start() {
-        console.log("Start");
+    start = () => {
+        console.log(this);
     }
 
-    pause() {}
+    pause = () => {}
 
-    onDurationChange() {}
+    onDurationChange = () => {}
 
-    tick() {}
+    tick = () => {}
 }
 
 const durationInput = document.getElementById("duration");
