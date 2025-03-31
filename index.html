@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timer</title>
-</head>
-<body>
-    <input id="duration" type="text" value="30">
-    <input id="start" type="button" value="start">
-    <input id="pause" type="button" value="pause">
+  </head>
+  <body>
+    <svg height="200" width="200">
+      <circle
+        r="90"
+        cx="100"
+        cy="100"
+        fill="transparent"
+        stroke="blue"
+        stroke-width="10"
+        stroke-dasharray="560"
+        stroke-dashoffset="200"
+      />
+    </svg>
+    <input id="duration" type="text" value="30" />
+    <input id="start" type="button" value="start" />
+    <input id="pause" type="button" value="pause" />
+    <script src="./timer.js"></script>
     <script src="./index.js"></script>
-</body>
+  </body>
 </html>
