@@ -1,5 +1,9 @@
 html {
-font-size: 62.5%;
+  font-size: 62.5%;
+}
+
+* > * {
+  box-sizing: border-box;
 }
 
 body {
@@ -9,9 +13,18 @@ body {
 #ui-elements {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.add-btn {
+  height: 3rem;
+  width: 3rem;
 }
 
 .timer-panel {
+  padding: 1rem;
   width: 10rem;
   height: 10rem;
+  background-color: blue;
 }

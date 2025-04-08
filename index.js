@@ -1,10 +1,12 @@
-console.log("JS loaded");
-
-let nextId = 0;
+let nextId = 1;
 
 const incNextId = () => {
   nextId += 1;
 };
+
+const addBtn = document.querySelector("#add-btn-0");
+const newTimerPanelButton = new NewTimerPanelButton(nextId, addBtn, incNextId);
+newTimerPanelButton.addTimerPanel();
 
 // let duration;
 // const timer = new Timer(durationInput, startButton, pauseButton, {
