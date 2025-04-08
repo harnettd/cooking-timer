@@ -1,0 +1,36 @@
+html {
+  font-size: 62.5%;
+}
+
+* > * {
+  box-sizing: border-box;
+  margin-bottom: 0;
+}
+
+body {
+  background-color: azure;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem
+}
+
+.ui-row-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  margin-bottom: 2rem;
+}
+
+.add-btn {}
+
+.timer-panel {
+  border: solid blueviolet 0.1rem;
+  padding: 1rem;
+  background-color: white;
+}
