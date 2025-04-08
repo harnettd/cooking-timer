@@ -2,7 +2,7 @@ class NewTimerPanelButton {
     constructor(id, btn, onAddTimerPanel) {
         this.id = id;
         this.btn = btn;
-        if(onAddTimerPanel) {
+        if (onAddTimerPanel) {
             this.onAddTimerPanel = onAddTimerPanel
         };
 

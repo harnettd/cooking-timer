@@ -1,12 +1,16 @@
 class TimerPanel {
-    constructor(id, panel) {
+    constructor(id, panel, onDelTimerPanel) {
         this.id = id;
         this.panel = panel;
+        if (onDelTimerPanel) {
+            this.onDelTimerPanel = onDelTimerPanel;
+        }
 
         this.input = document.createElement("input");
         this.input.setAttribute("placeholder", "Untitled");
         this.delButton = document.createElement("button");
         this.delButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
+        this.delButton.addEventListener("click", this.delTimerPanel);
         this.display = document.createElement("input");
         this.display.value = "1:00:00.0";
         // this.progressMeter = document.createElement("p")
@@ -28,6 +32,12 @@ class TimerPanel {
         this.panel.appendChild(labelRow);
         this.panel.appendChild(displayRow);
         this.panel.appendChild(btnRow);
+    }
 
+    delTimerPanel = () => {
+        this.panel.nextSibling.remove();
+        this.panel.remove();
+        this.onDelTimerPanel && this.onDelTimerPanel();
+        // Should we delete the TimerPanel itself?
     }
 }
