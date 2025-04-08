@@ -1,27 +1,25 @@
 class NewTimerPanelButton {
-    constructor(id, btn, onAddTimerPanel) {
-        this.id = id;
+    constructor(btn, onAddTimerPanel) {
         this.btn = btn;
         if (onAddTimerPanel) {
             this.onAddTimerPanel = onAddTimerPanel
         };
-
         this.btn.addEventListener("click", this.addTimerPanel);
     }
 
     addTimerPanel = () => {
         const panel = document.createElement("div");
-        // panel.setAttribute("id", `timer-panel-${this.id}`);
         panel.classList.add("timer-panel");
         this.btn.insertAdjacentElement("afterend", panel);
-        new TimerPanel(this.id, panel);
+        new TimerPanel(panel);
 
+        // I still think that creating a new NewTimerPanelButton
+        // could be implemented as a callback somehow.
         const btn = document.createElement("button");
-        // btn.setAttribute("id", `add-btn-${this.id}`);
         btn.classList.add("add-btn");
         btn.innerHTML = '<i class="fa-solid fa-plus"></i>';        
         panel.insertAdjacentElement("afterend", btn)
-        new NewTimerPanelButton(this.id, btn, this.onAddTimerPanel);
+        new NewTimerPanelButton(btn, this.onAddTimerPanel);
 
         this.onAddTimerPanel && this.onAddTimerPanel();
     }

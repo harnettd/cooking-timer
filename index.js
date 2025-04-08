@@ -1,11 +1,6 @@
-let nextId = 1;
-
-const incNextId = () => {
-  nextId += 1;
-};
-
-const addBtn = document.querySelector("#add-btn-0");
-const newTimerPanelButton = new NewTimerPanelButton(nextId, addBtn);
+const newTimerPanelButton = new NewTimerPanelButton(
+  document.querySelector("#add-btn-0")
+);
 newTimerPanelButton.addTimerPanel();
 
 // let duration;
