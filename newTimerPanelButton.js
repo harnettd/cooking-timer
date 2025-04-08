@@ -19,11 +19,7 @@ class NewTimerPanelButton {
         const btn = document.createElement("button");
         // btn.setAttribute("id", `add-btn-${this.id}`);
         btn.classList.add("add-btn");
-        btn.innerHTML = '<i class="fa-solid fa-plus"></i>';
-        
-        console.log(btn);
-        console.log(panel);
-
+        btn.innerHTML = '<i class="fa-solid fa-plus"></i>';        
         panel.insertAdjacentElement("afterend", btn)
         new NewTimerPanelButton(this.id, btn, this.onAddTimerPanel);
 

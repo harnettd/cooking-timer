@@ -23,8 +23,9 @@ body {
 }
 
 .timer-panel {
+  border: solid blueviolet 0.2rem;
   padding: 1rem;
-  width: 10rem;
-  height: 10rem;
-  background-color: blue;
+  /* width: 10rem; */
+  /* height: 10rem; */
+  background-color: white;
 }
