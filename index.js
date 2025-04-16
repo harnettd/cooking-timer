@@ -1,5 +1,15 @@
+function addNewTimerPanelButton() {
+  console.log(this);
+  const btn = document.createElement("button");
+  btn.classList.add("add-btn");
+  btn.innerHTML = '<i class="fa-solid fa-plus"></i>';        
+  this.btn.nextElementSibling.insertAdjacentElement("afterend", btn)
+  new NewTimerPanelButton(btn, this.onAddTimerPanel);
+}
+
 const newTimerPanelButton = new NewTimerPanelButton(
-  document.querySelector("#add-btn-0")
+  document.querySelector("#add-btn-0"),
+  addNewTimerPanelButton
 );
 newTimerPanelButton.addTimerPanel();
 
