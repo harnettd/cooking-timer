@@ -12,8 +12,12 @@ body {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 4rem;
   margin-bottom: 2rem;
+}
+
+progress {
+  width: 100%;
 }
 
 .ui-row-flex {

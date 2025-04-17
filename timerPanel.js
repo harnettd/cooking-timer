@@ -14,6 +14,7 @@ class TimerPanel {
         <div>
           <input type="text" class="display" value="${this.defaultTimerValue()}" />
         </div>
+        <progress max="100" value="75"></progress>
         <div>
           <button class="plus-ten-min">+10 min</i></button>
           <button class="plus-one-min">+1 min</i></button>
