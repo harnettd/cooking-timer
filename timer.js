@@ -33,6 +33,10 @@ class Timer {
         this.onTick && this.onTick(this.timeRemaining);
       }
     };
+
+    increaseTimeRemaining = (seconds) => {
+      this.timeRemaining += seconds;
+    };
   
     get timeRemaining() {
       return parseFloat(this.durationInput.value);

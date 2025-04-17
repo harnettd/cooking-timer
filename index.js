@@ -1,5 +1,4 @@
 function addNewTimerPanelButton() {
-  console.log(this);
   const btn = document.createElement("button");
   btn.classList.add("add-btn");
   btn.innerHTML = '<i class="fa-solid fa-plus"></i>';        

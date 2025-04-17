@@ -1,57 +1,51 @@
-const defaultTimerValue = 60;
-
 class TimerPanel {
-  constructor(panel, onDelTimerPanel) {
-    this.panel = panel;
+  constructor(div, onDelTimerPanel) {
+    this.panel = div;
     if (onDelTimerPanel) {
       this.onDelTimerPanel = onDelTimerPanel;
     }
 
-    const label = document.createElement("input");
-    label.classList.add("timer-panel__label");
-    label.value = "Untitled";
-
-    const delButton = document.createElement("button");
-    delButton.classList.add("timer-panel__del-btn");
-    delButton.innerHTML = '<i class="fa-solid fa-trash"></i>';
+    this.panel.innerHTML = 
+      `
+        <div>
+          <input type="text" value="Untitled" />
+          <button class="del"><i class="fa-solid fa-trash"></i></button>
+        </div>
+        <div>
+          <input type="text" class="display" value="${this.defaultTimerValue()}" />
+        </div>
+        <div>
+          <button class="plus-ten-min">+10 min</i></button>
+          <button class="plus-one-min">+1 min</i></button>
+          <button class="play"><i class="fa-solid fa-play"></i></button>
+          <button class="pause"><i class="fa-solid fa-pause"></i></button>
+        </div>
+    `;
+    
+    const display = this.panel.querySelector(".display");
+    const delButton = this.panel.querySelector(".del");
+    const plusTenMinButton = this.panel.querySelector(".plus-ten-min");
+    const plusOneMinButton = this.panel.querySelector(".plus-one-min");
+    const playButton = this.panel.querySelector(".play");
+    const pauseButton = this.panel.querySelector(".pause");
+    
     delButton.addEventListener("click", this.delTimerPanel);
 
-    const display = document.createElement("input");
-    display.classList.add("timer-panel__display");
-    display.value = defaultTimerValue;
-
-    const playButton = document.createElement("button");
-    playButton.classList.add("timer-panel__play-btn");
-    playButton.innerHTML = '<i class="fa-solid fa-play"></i>';
-
-    const pauseButton = document.createElement("button");
-    pauseButton.classList.add("timer-panel__pause-btn");
-    pauseButton.innerHTML = '<i class="fa-solid fa-pause"></i>';
-
-    new Timer(display, playButton, pauseButton, {
+    const timer = new Timer(display, playButton, pauseButton, {
       onStart() {},
       onTick() {},
       onComplete() {
         console.log("Complete");
       },
     });
+ 
+    plusTenMinButton.addEventListener("click", () => {
+      timer.increaseTimeRemaining(600);
+    });
 
-    const labelRow = document.createElement("div");
-    labelRow.classList.add("timer-panel__label-row");
-    const displayWrapper = document.createElement("div");
-    displayWrapper.classList.add("timer-panel__display-wrapper");
-    const btnRow = document.createElement("div");
-    btnRow.classList.add("timer-panel__btn-row");
-
-    labelRow.appendChild(label);
-    labelRow.appendChild(delButton);
-    displayWrapper.appendChild(display);
-    btnRow.appendChild(playButton);
-    btnRow.appendChild(pauseButton);
-
-    this.panel.appendChild(labelRow);
-    this.panel.appendChild(displayWrapper);
-    this.panel.appendChild(btnRow);
+    plusOneMinButton.addEventListener("click", () => {
+      timer.increaseTimeRemaining(60);
+    });
   }
 
   delTimerPanel = () => {
@@ -60,4 +54,6 @@ class TimerPanel {
     this.onDelTimerPanel && this.onDelTimerPanel();
     // Should we delete the TimerPanel itself?
   };
+
+  defaultTimerValue = () => 0;
 }
