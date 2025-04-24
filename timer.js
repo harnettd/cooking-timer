@@ -15,9 +15,9 @@ class Timer {
     delta_time = () => 100;
   
     play = () => {
+      this.onPlay && this.onPlay(this.timeRemaining);
       this.tick();
       this.intervalId = setInterval(this.tick, this.delta_time());
-      this.onPlay && this.onPlay(this.timeRemaining);
     };
   
     pause = () => {
