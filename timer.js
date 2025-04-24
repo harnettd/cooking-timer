@@ -1,21 +1,23 @@
 class Timer {
-    constructor(durationInput, startButton, pauseButton, callbacks) {
-      this.durationInput = durationInput;
-      this.startButton = startButton;
+    constructor(display, playButton, pauseButton, callbacks) {
+      this.display = display;
+      this.playButton = playButton;
       this.pauseButton = pauseButton;
       if (callbacks) {
-        this.onStart = callbacks.onStart;
+        this.onPlay = callbacks.onPlay;
         this.onTick = callbacks.onTick;
         this.onComplete = callbacks.onComplete;
       }
-      this.startButton.addEventListener("click", this.start);
+      this.playButton.addEventListener("click", this.play);
       this.pauseButton.addEventListener("click", this.pause);
     }
+
+    delta_time = () => 100;
   
-    start = () => {
-      this.onStart && this.onStart(this.timeRemaining);
+    play = () => {
       this.tick();
-      this.intervalId = setInterval(this.tick, 50);
+      this.intervalId = setInterval(this.tick, this.delta_time());
+      this.onPlay && this.onPlay(this.timeRemaining);
     };
   
     pause = () => {
@@ -29,7 +31,7 @@ class Timer {
         this.pause();
         this.onComplete && this.onComplete();
       } else {
-        this.timeRemaining = this.timeRemaining - 0.05;
+        this.timeRemaining = this.timeRemaining - this.delta_time() / 1000.;
         this.onTick && this.onTick(this.timeRemaining);
       }
     };
@@ -39,10 +41,10 @@ class Timer {
     };
   
     get timeRemaining() {
-      return parseFloat(this.durationInput.value);
+      return parseFloat(this.display.value);
     }
   
     set timeRemaining(time) {
-      this.durationInput.value = time.toFixed(2);
+      this.display.value = time.toFixed(1);
     }
   }
