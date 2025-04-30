@@ -42,14 +42,16 @@ class Timer {
     };
 
     clearTimeRemaining= () => {
-      this.timeRemaining = 0;
+      this.timeRemaining = 0.0;
     }
   
     get timeRemaining() {
-      return parseFloat(this.display.value);
+      // return parseFloat(this.display.value);
+      return displayTimeToSeconds(this.display.value);
     }
   
     set timeRemaining(time) {
-      this.display.value = time.toFixed(1);
+      // this.display.value = time.toFixed(1);
+      this.display.value = secondsToDisplayTime(time.toFixed(1));
     }
   }
