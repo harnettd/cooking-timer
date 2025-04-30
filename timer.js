@@ -10,6 +10,7 @@ class Timer {
       }
       this.playButton.addEventListener("click", this.play);
       this.pauseButton.addEventListener("click", this.pause);
+      this.clearTimeRemaining();
     }
 
     delta_time = () => 100;
@@ -39,6 +40,10 @@ class Timer {
     increaseTimeRemaining = (seconds) => {
       this.timeRemaining += seconds;
     };
+
+    clearTimeRemaining= () => {
+      this.timeRemaining = 0;
+    }
   
     get timeRemaining() {
       return parseFloat(this.display.value);

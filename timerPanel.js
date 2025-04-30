@@ -11,14 +11,15 @@ class TimerPanel {
         <button class="del"><i class="fa-solid fa-trash"></i></button>
       </div>
       <div>
-        <button class="plus-one-hr">+1 hr</i></button>
-        <button class="plus-ten-min">+10 min</i></button>
-        <button class="plus-one-min">+1 min</i></button>
-        <button class="plus-ten-sec">+10 sec</i></button>
-        <button class="plus-one-sec">+1 sec</i></button>
+        <button class="plus-one-hr">+1 hr</button>
+        <button class="plus-ten-min">+10 min</button>
+        <button class="plus-one-min">+1 min</button>
+        <button class="plus-ten-sec">+10 sec</button>
+        <button class="plus-one-sec">+1 sec</button>
       </div>
       <div>
-        <input type="text" class="display" value="${this.defaultTimerValue()}" />
+        <input type="text" class="display"/>
+        <button class="clear"><i class="fa-solid fa-delete-left"></i></button>
       </div>
         <progress class="progress" max="100" value="100"></progress>
       <div>
@@ -34,6 +35,7 @@ class TimerPanel {
     const plusTenSecButton = this.panel.querySelector(".plus-ten-sec");
     const plusOneSecButton = this.panel.querySelector(".plus-one-sec");
     const display = this.panel.querySelector(".display");
+    const clearButton = this.panel.querySelector(".clear");
     const progress = this.panel.querySelector(".progress");
     const playButton = this.panel.querySelector(".play");
     const pauseButton = this.panel.querySelector(".pause");
@@ -73,14 +75,14 @@ class TimerPanel {
     plusOneSecButton.addEventListener("click", () => {
       timer.increaseTimeRemaining(1);
     });
-  }
 
-  defaultTimerValue = () => 0;
+    clearButton.addEventListener("click", timer.clearTimeRemaining);
+  }
 
   delTimerPanel = () => {
     this.panel.nextSibling.remove();
     this.panel.remove();
     this.onDelTimerPanel && this.onDelTimerPanel();
-    // Should we delete the TimerPanel itself?
+    // TODO: Should we (somehow) delete the TimerPanel object itself?
   };
 }
