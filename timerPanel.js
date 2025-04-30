@@ -52,6 +52,8 @@ class TimerPanel {
       },
 
       onComplete() {
+        const audio = new Audio("assets/sounds/generic-alarm-clock-86759.mp3");
+        audio.play();
         console.log("Complete");
       },
     });
